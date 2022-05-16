@@ -7,16 +7,16 @@ $(document).ready(function(){
 
         if( username != "" && password != "" ){
             $.ajax({
-                url:'https://localhost:44308/api/Login',
+                url:'https://localhost:5001/Alumno/Login',
                 type:'post',
-                data:JSON.stringify({username:username,password:password}),
+                data:JSON.stringify({email:username,password:password}),
                 contentType:"application/json; charset=utf-8",
                 success:function(response){
-                    if(response){
-                        window.location = "welcome.html";
-                    }else{
-                        $("#error").fadeIn();
-                    }
+                    
+                    window.location = "welcome.html";
+                },
+                error:function(){
+                    $("#error").fadeIn();
                 }
             });
         }
